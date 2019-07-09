@@ -17,7 +17,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -50,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_weather);
-
+AppCenter.start(getApplication(), "a0c3ce17-881a-4df6-b70a-d4df84f905bc",
+                  Analytics.class, Crashes.class);
         mCityName = (TextView) findViewById(R.id.fetching_city);
         mWeatherImage = (ImageView) findViewById(R.id.weather_symboll);
         mTemperature = (TextView) findViewById(R.id.temp);
